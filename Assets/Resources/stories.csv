@@ -1,0 +1,3 @@
+Event Description,Choice one,Choice two,Choice three,Location,Positive,Insane,Probability,Choice 1 influence,Choice 2 influence,Choice 3 influence,Timeframe,,
+Phone notification about dad,"Hey son, your dad just got admitted to hospital. We've not talked in a while are you ok?","Hey son, your dad got promomoted at work!",,phone desk,TRUE,FALSE,0.3,-0.2,0.1,,0,,
+Phone notification,WE'RE WATCHING YOU,WE'RE WATCHING YOU,WE'RE WATCHING YOU,phone desk,FALSE,TRUE,0.3,-0.3,-0.3,-0.3,0,,
