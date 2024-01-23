@@ -24,21 +24,21 @@ public class StoryManager : MonoBehaviour
         int insanityChance = 0;
 
         // check chances of an insane event
-        if(insanity > 0.4f)
+        if (insanity > 0.4f)
         {
             float tInsanity = insanity;
 
             // every 0.1 increase to insanity increase the chance by one. So 0.6 would be 3/10, 1 would be 7/10
             bool done = false;
-            while(done == false)
+            while (done == false)
             {
                 // if insanity is greater than 0.4 do a 1 in 10 chance you get an insane event
-                if((tInsanity - 0.4f) > 0f)
+                if ((tInsanity - 0.4f) > 0f)
                 {
                     insanityChance += 1;
                     tInsanity -= 0.1f;
                 }
-                if(tInsanity > 0.2f)
+                if (tInsanity > 0.2f)
                 {
                     done = false;
                 }
@@ -48,7 +48,7 @@ public class StoryManager : MonoBehaviour
                 }
             }
 
-            if((insanity - 0.2f) > 0)
+            if ((insanity - 0.2f) > 0)
             {
                 insanityChance += 1;
             }
@@ -56,25 +56,25 @@ public class StoryManager : MonoBehaviour
         else
         {
             // If happiness is below 0.2 do a 50/50 whether the option will be forced positive
-            if(happiness <= 0.2f)
+            if (happiness <= 0.2f)
             {
-                if(Random.Range(0,1) == 1)
+                if (Random.Range(0, 1) == 1)
                 {
                     forcePositive = true;
                 }
             }
         }
 
-        if(insanityChance != 0)
+        if (insanityChance != 0)
         {
             // this makes it an insane event
-            if(Random.Range(0, 10) <= insanityChance)
+            if (Random.Range(0, 10) <= insanityChance)
             {
                 List<string[]> tempList = new List<string[]>();
 
-                foreach(string[] storyEvent in storyList)
+                foreach (string[] storyEvent in storyList)
                 {
-                    if(storyEvent[6] == "TRUE")
+                    if (storyEvent[6] == "TRUE")
                     {
                         tempList.Add(storyEvent);
                     }
@@ -87,13 +87,13 @@ public class StoryManager : MonoBehaviour
         else
         {
             // this makes it have to be an event marked as positive
-            if(forcePositive)
+            if (forcePositive)
             {
                 List<string[]> tempList = new List<string[]>();
 
-                foreach(string[] storyEvent in storyList)
+                foreach (string[] storyEvent in storyList)
                 {
-                    if(storyEvent[5] == "TRUE")
+                    if (storyEvent[5] == "TRUE")
                     {
                         tempList.Add(storyEvent);
                     }
@@ -114,8 +114,8 @@ public class StoryManager : MonoBehaviour
     private string[] GetRandomEvent(List<string[]> filteredStoryList)
     {
         List<string[]> tempList = new List<string[]>();
-                
-        foreach(string[] storyEvent in filteredStoryList)
+
+        foreach (string[] storyEvent in filteredStoryList)
         {
             // if for example its 0.3 thats 30 percent so we add 30 of them
 
@@ -127,7 +127,7 @@ public class StoryManager : MonoBehaviour
                 //Debug.Log("Probability is: " + probabilityInt);
 
                 // add the required amount to the tempList
-                for(int i = 0; i <= probabilityInt; i++)
+                for (int i = 0; i <= probabilityInt; i++)
                 {
                     tempList.Add(storyEvent);
                 }
@@ -175,11 +175,7 @@ public class StoryManager : MonoBehaviour
         string[] splittedLines = textFile.text.Split("\n");
 
         // splits into items
-<<<<<<< Updated upstream
-        for(int i = 1; i < splittedLines.Length; i++)
-=======
-        for(int i = 3; i < splittedLines.Length; i++)
->>>>>>> Stashed changes
+        for (int i = 3; i < splittedLines.Length; i++)
         {
             //Debug.Log(splittedLines[i]);
             string[] splittedValues = ParseCSVLine(splittedLines[i]);
@@ -194,7 +190,7 @@ public class StoryManager : MonoBehaviour
     }
 
     public void LoadPlayer()
-    { 
+    {
         PlayerData data = SaveSystem.LoadPlayer();
 
         storyList = data.storyList;
@@ -206,7 +202,7 @@ public class StoryManager : MonoBehaviour
     void FirstLoad()
     {
         string path = Application.persistentDataPath + "/player.ezeSave";
-        
+
         if (File.Exists(path))
         {
             //LoadPlayer();
