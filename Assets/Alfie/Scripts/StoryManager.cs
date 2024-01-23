@@ -175,11 +175,7 @@ public class StoryManager : MonoBehaviour
         string[] splittedLines = textFile.text.Split("\n");
 
         // splits into items
-<<<<<<< Updated upstream
-        for(int i = 1; i < splittedLines.Length; i++)
-=======
         for(int i = 3; i < splittedLines.Length; i++)
->>>>>>> Stashed changes
         {
             //Debug.Log(splittedLines[i]);
             string[] splittedValues = ParseCSVLine(splittedLines[i]);
