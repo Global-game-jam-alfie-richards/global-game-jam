@@ -304,10 +304,11 @@ public class StoryManager : MonoBehaviour
         {
             //LoadPlayer();
 
-            // REMOVE THIS IN PRODUCTION
+            // DEBUGGING CODE REMOVE IN PROD
             LoadCSV();
             TimeIncrease();
             SavePlayer();
+            // DEBUGGING CODE REMOVE IN PROD
         }
         else
         {
