@@ -1422,7 +1422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   happiness: 0.5
-  insanity: 0.5
+  insanity: 0
   currentDay: 0
   remainingEvents: 0
   maxEventDelay: 1
