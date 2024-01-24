@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 443a8ae72fd1b89439893a2d50a33df0
 ModelImporter:
-  serializedVersion: 22103
+  serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects:
   - first:
@@ -12,8 +12,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Black Shit.001
+    second: {fileID: 2100000, guid: 1ae7f49ce6060294e9d51a75e5db3a04, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: BlueKeycaps
     second: {fileID: 2100000, guid: debb7ff285ad863419dc3fa5705fe661, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlueKeycaps.001
+    second: {fileID: 2100000, guid: 05399818bf78bbb48bf8128884f832f8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -22,8 +32,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: BrickRips.001
+    second: {fileID: 2100000, guid: deaafe1230fe93c448a6c63c4c0fafba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: ClothesPile
     second: {fileID: 2100000, guid: bc44a93874f58214886cb2107019423c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ClothesPile.001
+    second: {fileID: 2100000, guid: a96e5984603e89b4dbb44c3557089fa9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -32,8 +52,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: ComputerMat_Black.001
+    second: {fileID: 2100000, guid: dbd9affb8e473c54b86ea109990c9923, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: ComputerMat_Motherboard
     second: {fileID: 2100000, guid: 1dc5a176ebdf7e544b3a684c8276ab51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ComputerMat_Motherboard.001
+    second: {fileID: 2100000, guid: ffd10b6f5e90115478daf1a04154fe08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "DALL\xB7E 2024-01-22 16.57.55 - Design a fictional noodle pac"
+    second: {fileID: 2100000, guid: 213823c9505975946864275e1f0025cb, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -47,8 +82,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: DarkWood.001
+    second: {fileID: 2100000, guid: d7653e480175b7248b6f1e72ac43b9ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: DirtyPlates
     second: {fileID: 2100000, guid: 1e7cd8c78363408478f7a951c7f17cd5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DirtyPlates.001
+    second: {fileID: 2100000, guid: b3a192d24b2d52e4a9eefe085c4f1634, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -57,8 +102,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: DirtyWorkTop.001
+    second: {fileID: 2100000, guid: 2618251cbb86ade40a6cd2d9e719a097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Green Plastic
     second: {fileID: 2100000, guid: da26c431fba475244b60bd4401ea503b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Green Plastic.001
+    second: {fileID: 2100000, guid: 2969170fe73163542a5c1eacf8d0eb76, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -67,13 +122,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: LightBlueKeycaps.002
+    second: {fileID: 2100000, guid: 68085e2203dabf4418805c616d105b56, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: LightFixture
     second: {fileID: 2100000, guid: 0bb857b701e7cb240846c0fc3b9f5d38, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: LightFixture.001
+    second: {fileID: 2100000, guid: 0fb5a7e779e4f064185b9f42cee511a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: LightWood
     second: {fileID: 2100000, guid: 1136c8fced269ca4dbf0e3a5abd2855e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LightWood.001
+    second: {fileID: 2100000, guid: a4e1325957a28714c9039d0f379975ee, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -92,8 +162,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 7a3292aedc57afe4aa25e17c872416d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: 6ebf65d2084f1004d9d07801ac148bca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.006
+    second: {fileID: 2100000, guid: 3636b4dfc247d764f90411e3710514aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Mirror
     second: {fileID: 2100000, guid: 1e49c14cb52ca19419c836cbab28e6fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mirror.001
+    second: {fileID: 2100000, guid: 38eadd7b737903143b0934f553015a2a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -102,8 +192,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Monitor Body.001
+    second: {fileID: 2100000, guid: 72f37091e0faf624e8728661ec8686f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Monitor Screen
     second: {fileID: 2100000, guid: fce2c0a68b7e2664dbbaae3dec5a19d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Monitor Screen.001
+    second: {fileID: 2100000, guid: 2c66a066ed4ea5447b2b0e0c7420dda5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -112,8 +212,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Monitor Stand.001
+    second: {fileID: 2100000, guid: a113f43a63851f649ab65500f217c822, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: PinBoard
     second: {fileID: 2100000, guid: e54e1d59cba1a9946bdf3c2c42c4346f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PinBoard.001
+    second: {fileID: 2100000, guid: 3e866c286eeeae14b96b433a3621425d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -122,8 +232,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: PizzaBox.001
+    second: {fileID: 2100000, guid: d4e0b5d8d55ba5344823beb34dea2fc3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: PizzaBoxInterior
     second: {fileID: 2100000, guid: add503eb5a663294c9d281d7ab378b53, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PizzaBoxInterior.001
+    second: {fileID: 2100000, guid: 8e7c91019a32b7842a32e0f0ec7e2839, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -132,8 +252,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: PizzaTexture.001
+    second: {fileID: 2100000, guid: cd26b085bf1a5024aa734d36ba55aebb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Plates
     second: {fileID: 2100000, guid: 3cab3d07fcd008948a1b691c642bbd03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plates.001
+    second: {fileID: 2100000, guid: 4c7a57f1d2b5b974fb48c7349ba642c1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -142,8 +272,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Poster1.001
+    second: {fileID: 2100000, guid: 7920e4e08c179f644a2d3034770cfbbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Poster2
     second: {fileID: 2100000, guid: a17423be437d0cd4ab732dbbe2bf6bbc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Poster2.001
+    second: {fileID: 2100000, guid: 1bc03a324c6bda147bd130148f7b68ef, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -152,8 +292,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Railing.001
+    second: {fileID: 2100000, guid: f44823b0f3fc454478bce62d16115adf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: ShanmileDrink
     second: {fileID: 2100000, guid: 1e25c38a2d1e331419ac32180d908d9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ShanmileDrink.001
+    second: {fileID: 2100000, guid: a29dba124f23d984d9ee7ae72c1558f6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -162,8 +312,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: ShinyGrey.001
+    second: {fileID: 2100000, guid: 8f24a6dcbfdad894d8ed2224af5cc7e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: WhiteLaminatedWood
     second: {fileID: 2100000, guid: c66def3b9db7c954787ba33c496f4ed9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WhiteLaminatedWood.001
+    second: {fileID: 2100000, guid: ec29157184010894184242dcaaca0073, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -172,8 +332,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: beige_wall_001.001
+    second: {fileID: 2100000, guid: 54d1c24e903a6274aa2b047b640eb28a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: book_pattern
     second: {fileID: 2100000, guid: 717dfc45b0d098842b8058b082c348c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: book_pattern.004
+    second: {fileID: 2100000, guid: 97113c6865ec49f43adafe88a985617a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -182,8 +352,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: laminate_floor_02.001
+    second: {fileID: 2100000, guid: 65bf42e418459bc4f977830b2a722cca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: plywood
     second: {fileID: 2100000, guid: d121416edb6913b4ea52b2edc3b1bfe7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plywood.001
+    second: {fileID: 2100000, guid: 2d4e4867f8e44bd45ba7db4c45c9b8e7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -192,8 +372,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: poly.001
+    second: {fileID: 2100000, guid: 5c23d424ff65c1a4a9ae1375852266f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: void
     second: {fileID: 2100000, guid: c59c602e24bdd0841ac968893bcb3845, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: void.001
+    second: {fileID: 2100000, guid: b8620ba3e175a70429fac10f0b10b42a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -206,8 +396,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -230,6 +418,7 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
