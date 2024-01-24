@@ -1,0 +1,13 @@
+<<<<<<< Updated upstream
+Event Description,Choice one,Choice two,Choice three,Location,Positive,Insane,Probability,Choice 1 influence,Choice 2 influence,Choice 3 influence,Timeframe,,
+Phone notification about dad,"Hey son, your dad just got admitted to hospital. We've not talked in a while are you ok?","Hey son, your dad got promomoted at work!",,phone desk,TRUE,FALSE,0.3,-0.2,0.1,,0,,
+Phone notification,WE'RE WATCHING YOU,WE'RE WATCHING YOU,WE'RE WATCHING YOU,phone desk,FALSE,TRUE,0.3,-0.3,-0.3,-0.3,0,,
+=======
+Just so i know what it is,,,,Where the event canvas will be,Overall Positivity. If sad positive is more likely. True or false,True or false. Insane events will only have a chance of happening when the insanity stat is high enough,Higher or lower chance of events happening. 1 is high 0.1 is low,Negative is negative effect to happiness. Positive is positive effect,These will add and subtract directly from the happiness. 1 is like ecstatic 0 is suicidal,0.3 is like a massive change. 0.1 is a normal change,Event timeframe. This is the minimum day it can happen,,A month in this game is 30 days. There will be 3 months of gameplay. The player plays every 3 days of this guys life. Meaning there will be 30 days of their playtime. 3-5 events will happen per day
+,,,,,,,,,,,,,
+Event Description,Choice one,Choice two,Choice three,Location,Positive,Insane,Probability,Choice 1 influence,Choice 2 influence,Choice 3 influence,Timeframe,,
+Phone notification about dad,"Hey son, your dad just got admitted to hospital. We've not talked in a while are you ok?","Hey son, your dad got promomoted at work!",,phone desk,FALSE,FALSE,0.3,-0.2,0.1,,0,,
+Phone notification. We are watching,WE'RE WATCHING YOU,WE'RE WATCHING YOU,WE'RE WATCHING YOU,phone desk,FALSE,TRUE,0.3,-0.3,-0.3,-0.3,0,,
+Game jam is due in a week how u doin,I think i'm doing okay,I think i'm doing very well,I think i'm doing very badly,computer screen,FALSE,FALSE,0.4,0,0.1,-0.2,28,,
+Game jam is due in a fortnight how u doin,I think i'm doing okay,I think i'm doing very well,I think i'm doing very badly,computer screen,FALSE,FALSE,0.4,0,0.1,-0.2,24,,
+>>>>>>> Stashed changes
