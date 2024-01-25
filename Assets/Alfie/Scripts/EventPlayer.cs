@@ -8,6 +8,7 @@ public class EventPlayer : MonoBehaviour
 {
     // event info
     public string location;
+    [SerializeField] private GameObject playerObject;
 
     // ui elements
     [SerializeField] private GameObject canvas;
@@ -93,7 +94,6 @@ public class EventPlayer : MonoBehaviour
                 break;
             case "kitchen":
                 playerAnim.SetFloat("happiness", storyManager.happiness);
-                playerAnim.SetTrigger("humping");
                 break;
             default: // phone in bed
 
@@ -163,6 +163,7 @@ public class EventPlayer : MonoBehaviour
     {
         canvas.SetActive(false);
         // fade to black
+        Destroy(playerObject);
     }
     
     IEnumerator setHappinessAnim(float influence)
@@ -206,6 +207,29 @@ public class EventPlayer : MonoBehaviour
                 }
                 playerAnim.SetBool("eventHappening", false);
 
+                break;
+            case "money":
+                Debug.Log("YOU ARE THE WINNER");
+                break;
+            case "kitchen":
+                if (influence < 0)
+                {
+                    playerAnim.SetTrigger("sadReaction");
+                }
+                else
+                {
+                    int coinFlip = Random.Range(1, 3);
+                    Debug.Log(coinFlip);
+                    if ( coinFlip == 2)
+                    {
+                        playerAnim.SetTrigger("humping");
+                    }
+                    else
+                    {
+                        playerAnim.SetTrigger("happyReaction");
+                    }
+                }
+                
                 break;
             default: // phone in bed
                 if (influence < 0)
