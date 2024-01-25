@@ -2,25 +2,102 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
+
+using Random=UnityEngine.Random;
 
 public class StoryManager : MonoBehaviour
 {
+    // events and story
     public List<string[]> storyList = new List<string[]>();
+    EventPlayer[] eventPlayers;
+    string[] currentEvent;
+
+    // game stats
     public float happiness = 0.5f;
     public float insanity = 0f;
+
+    // time keeping
     public int currentDay = 0;
+    public int remainingEvents = 0;
+
+    // event delays
+    [SerializeField] private int maxEventDelay = 7;
+    [SerializeField] private int minEventDelay = 5;
+
+    // daily events
+    [SerializeField] private int maxDailyEvents = 7;
+    [SerializeField] private int minDailyEvents = 5;
 
     // Start is called before the first frame update
     void Start()
     {
+        eventPlayers = FindObjectsOfType<EventPlayer>();
+
+        // loads save file etc
         FirstLoad();
-        RunEvent();
+
+        // begins time cycle
+        remainingEvents = Random.Range(minDailyEvents, maxDailyEvents);
+        QueueTime();
+        // RunEvent();
     }
+
+    void QueueTime()
+    {
+        int delay = Random.Range(minEventDelay, maxEventDelay);
+        Invoke("WaitTime", delay);
+    }
+
+    void WaitTime()
+    {
+        // time has now progressed so now we do the next event
+        if(remainingEvents != 0)
+        {
+            RunEvent();
+        }
+        else
+        {
+            // do day ending (animation or something idk)
+            // also here if we want events to happen specifically at the end of the day like scrolling shorts we can have it always happen if the remaining events is less than 2 but not 0
+
+            Debug.Log("Day ended");
+
+            // progresses to the next day
+
+            // if the outcome of the day is sadness become mildly insane
+            if(happiness < 0.3)
+            {
+                insanity += 0.1f;
+            }
+
+            if(happiness > 0.6)
+            {
+                insanity -= 0.1f;
+            }
+
+            if(happiness < 0)
+            {
+                happiness = 0f;
+            }
+
+            currentDay += 1;
+
+            // DEBUGGING CODE REMOVE IN PROD
+            remainingEvents = Random.Range(minDailyEvents, maxDailyEvents);
+            QueueTime();
+            // DEBUGGING CODE REMOVE IN PROD
+
+            SavePlayer();
+        }
+    }
+
+    
+
 
     void RunEvent()
     {
         bool forcePositive = false;
-        bool insaneEvent = false;
         int insanityChance = 0;
 
         // check chances of an insane event
@@ -32,25 +109,16 @@ public class StoryManager : MonoBehaviour
             bool done = false;
             while (done == false)
             {
-                // if insanity is greater than 0.4 do a 1 in 10 chance you get an insane event
-                if ((tInsanity - 0.4f) > 0f)
+                // if insanity is greater than 0.3 do a 1 in 10 chance you get an insane event
+                if((tInsanity - 0.3f) > 0f)
                 {
                     insanityChance += 1;
                     tInsanity -= 0.1f;
-                }
-                if (tInsanity > 0.2f)
-                {
-                    done = false;
                 }
                 else
                 {
                     done = true;
                 }
-            }
-
-            if ((insanity - 0.2f) > 0)
-            {
-                insanityChance += 1;
             }
         }
         else
@@ -70,21 +138,22 @@ public class StoryManager : MonoBehaviour
             // this makes it an insane event
             if (Random.Range(0, 10) <= insanityChance)
             {
+                Debug.Log(insanityChance);
                 List<string[]> tempList = new List<string[]>();
 
                 foreach (string[] storyEvent in storyList)
                 {
-                    if (storyEvent[6] == "TRUE")
+                    if(storyEvent[5] == "TRUE")
                     {
                         tempList.Add(storyEvent);
                     }
                 }
 
                 // we now have our insane event
-                Debug.Log(GetRandomEvent(tempList)[0]);
+                currentEvent = (GetRandomEvent(tempList));
             }
         }
-        else
+        if(currentEvent == null)
         {
             // this makes it have to be an event marked as positive
             if (forcePositive)
@@ -93,21 +162,41 @@ public class StoryManager : MonoBehaviour
 
                 foreach (string[] storyEvent in storyList)
                 {
-                    if (storyEvent[5] == "TRUE")
+                    if(storyEvent[4] == "TRUE")
                     {
                         tempList.Add(storyEvent);
                     }
                 }
 
                 // we now have our positive event
-                Debug.Log(GetRandomEvent(tempList)[0]);
+                currentEvent = (GetRandomEvent(tempList));
             }
             // this is a regular event selection
             else
             {
-                // we now have our selected event
-                Debug.Log(GetRandomEvent(storyList)[0]);
+                // makes it so u only get insane events if youre insane
+                List<string[]> tempList = new List<string[]>();
+
+                foreach(string[] storyEvent in storyList)
+                {
+                    if(storyEvent[5] != "TRUE")
+                    {
+                        tempList.Add(storyEvent);
+                    }
+                }
+
+                // we now have our positive event
+                currentEvent = (GetRandomEvent(tempList));
             }
+        }
+
+        // get event location ready for players
+        string eventLocation = currentEvent[3];
+
+        // find all objects of type EventPlayer, call the method on them
+        foreach(EventPlayer eventPlayer in eventPlayers)
+        {
+            eventPlayer.RunEvent(eventLocation, currentEvent);
         }
     }
 
@@ -119,7 +208,7 @@ public class StoryManager : MonoBehaviour
         {
             // if for example its 0.3 thats 30 percent so we add 30 of them
 
-            if (float.TryParse(storyEvent[7], out float result))
+            if (float.TryParse(storyEvent[6], out float result))
             {
                 // turn the probability into an int out of 100
                 float probability = result;
@@ -134,7 +223,7 @@ public class StoryManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Invalid datatype for probability in story entry: " + storyEvent[0] + " '" + storyEvent[7] + "'" + " Is not valid");
+                Debug.Log("Invalid datatype for probability in story entry: " + storyEvent[0] + " '" + storyEvent[6] + "'" + " Is not valid");
             }
         }
 
@@ -145,10 +234,18 @@ public class StoryManager : MonoBehaviour
     }
 
 
-    public void ChangeHappiness(int value)
+    public void ChangeHappiness(float value)
     {
         happiness += value;
+        happiness = (float)Math.Round(happiness, 2);
         Debug.Log("Happiness is now: " + happiness);
+
+        // also probably animate the camera returning here?? or we handle all that in the event player itself which is probs a better idea
+
+        // start the next event timer
+        remainingEvents --;
+        currentEvent = null;
+        QueueTime();
     }
 
     public void ChangeInsanity(int value)
@@ -207,10 +304,11 @@ public class StoryManager : MonoBehaviour
         {
             //LoadPlayer();
 
-            // REMOVE THIS IN PRODUCTION
+            // DEBUGGING CODE REMOVE IN PROD
             LoadCSV();
             TimeIncrease();
             SavePlayer();
+            // DEBUGGING CODE REMOVE IN PROD
         }
         else
         {
@@ -220,7 +318,7 @@ public class StoryManager : MonoBehaviour
         }
     }
 
-    public static string[] ParseCSVLine(string csvLine)
+    public string[] ParseCSVLine(string csvLine)
     {
         List<string> fields = new List<string>();
         bool insideQuotes = false;
