@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class EventPlayer : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class EventPlayer : MonoBehaviour
     [SerializeField] private GameObject canvas;
     [SerializeField] private TextMeshProUGUI option1;
     [SerializeField] private TextMeshProUGUI option2;
+    [SerializeField] private Animator playerAnim;
 
     // animation options
     // specify the animation like clip here that needs to be played for this specific object and then used in line 28
@@ -34,7 +36,7 @@ public class EventPlayer : MonoBehaviour
         if(eventLocation == location)
         {
             // play animation or sound here
-
+            
             
 
             // do the event
@@ -74,6 +76,29 @@ public class EventPlayer : MonoBehaviour
 
     public void ButtonPress(int button)
     {
+        switch (location)
+        {
+            case "phone on desk":
+                playerAnim.SetBool("eventHappening", true);
+                playerAnim.SetBool("isTyping", false);
+                playerAnim.SetTrigger("phoneEventStart");
+                break;
+            case "computer tower":
+                playerAnim.SetBool("eventHappening", true);
+                playerAnim.SetBool("isTyping", false);
+                break;
+            case "computer screen":
+                playerAnim.SetBool("eventHappening", true);
+                playerAnim.SetBool("isTyping", false);
+                break;
+            case "kitchen":
+                playerAnim.SetFloat("happiness", storyManager.happiness);
+                playerAnim.SetTrigger("humping");
+                break;
+            default: // phone in bed
+
+                break;
+        }
         // true is 1 false is 2
         bool chosenButton = false;
         switch(button)
@@ -123,8 +148,15 @@ public class EventPlayer : MonoBehaviour
             storyManager.ChangeHappiness(0f);
         }
 
+        StartCoroutine(setHappinessAnim(influence));
+
         // close ui and animate like exit
+        if (location == "phone in bed")
+        {
+            playerAnim.SetTrigger("isSleeping");
+        }
         EndEvent();
+        
     }
 
     void EndEvent()
@@ -132,5 +164,60 @@ public class EventPlayer : MonoBehaviour
         canvas.SetActive(false);
         // fade to black
     }
+    
+    IEnumerator setHappinessAnim(float influence)
+    {
+        yield return new WaitForSeconds(0.1f);
+        switch (location)
+        {
+            case "phone on desk":
+                playerAnim.SetTrigger("phoneEventEnd");
+                if (influence < 0)
+                {
+                    playerAnim.SetTrigger("errorReaction");
+                }
+                else
+                {
+                    playerAnim.SetTrigger("happyReaction");
+                }
+                playerAnim.SetBool("eventHappening", false);
 
+                break;
+            case "computer tower":
+                if (influence < 0)
+                {
+                    playerAnim.SetTrigger("errorReaction");
+                }
+                else
+                {
+                    playerAnim.SetTrigger("happyReaction");
+                }
+                playerAnim.SetBool("eventHappening", false);
+
+                break;
+            case "computer screen":
+                if (influence < 0)
+                {
+                    playerAnim.SetTrigger("sadReaction");
+                }
+                else
+                {
+                    playerAnim.SetTrigger("happyReaction");
+                }
+                playerAnim.SetBool("eventHappening", false);
+
+                break;
+            default: // phone in bed
+                if (influence < 0)
+                {
+                    playerAnim.SetTrigger("sadReaction");
+                }
+                else
+                {
+                    playerAnim.SetTrigger("happyReaction");
+                }
+                break;
+        }
+        yield break;
+    }
 }

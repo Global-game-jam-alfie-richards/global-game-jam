@@ -189,6 +189,7 @@ public class StoryManager : MonoBehaviour
                 currentEvent = (GetRandomEvent(tempList));
             }
         }
+        Debug.Log(currentEvent[0]);
 
         // get event location ready for players
         string eventLocation = currentEvent[3];
