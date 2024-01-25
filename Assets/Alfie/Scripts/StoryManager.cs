@@ -5,9 +5,13 @@ using System.IO;
 using System;
 
 using Random=UnityEngine.Random;
+using UnityEngine.UIElements;
 
 public class StoryManager : MonoBehaviour
 {
+    // character prefabs
+    [SerializeField] GameObject phone, computer, mail, kitchen, bed, money;
+
     // events and story
     public List<string[]> storyList = new List<string[]>();
     EventPlayer[] eventPlayers;
@@ -33,6 +37,7 @@ public class StoryManager : MonoBehaviour
     void Start()
     {
         eventPlayers = FindObjectsOfType<EventPlayer>();
+        
 
         // loads save file etc
         FirstLoad();
@@ -58,7 +63,12 @@ public class StoryManager : MonoBehaviour
         }
         else
         {
+
+
             // do day ending (animation or something idk)
+            //instantiate bed player object and fade out or something - dexter
+            GameObject bedPlayer = Instantiate(bed);
+
             // also here if we want events to happen specifically at the end of the day like scrolling shorts we can have it always happen if the remaining events is less than 2 but not 0
 
             Debug.Log("Day ended");
@@ -193,6 +203,43 @@ public class StoryManager : MonoBehaviour
 
         // get event location ready for players
         string eventLocation = currentEvent[3];
+
+        Vector3 position = new Vector3(0, 0, 0);
+        Quaternion rotation = Quaternion.Euler(0, 0, 0);
+        Vector3 scale = new Vector3(1.35f, 1.35f, 1.35f);
+
+        // activate the corresponding player object
+        switch (eventLocation)
+        {
+            case "phone on desk":
+
+                GameObject phonePlayer = Instantiate(phone);
+                break;
+
+            case "computer screen":
+
+                GameObject screenPlayer = Instantiate(computer);
+                break;
+
+            case "mail":
+
+                GameObject mailPlayer = Instantiate(mail);
+                break;
+
+            case "kitchen":
+
+                GameObject kitchenPlayer = Instantiate(kitchen);
+                break;
+
+            case "money":
+
+                GameObject moneyPlayer = Instantiate(money);
+                break;
+            default:
+
+                GameObject bedPlayer = Instantiate(bed);
+                break;
+        }
 
         // find all objects of type EventPlayer, call the method on them
         foreach(EventPlayer eventPlayer in eventPlayers)
