@@ -9,6 +9,7 @@ public class DateThing : MonoBehaviour
     public TextMeshProUGUI text;
     void Start()
     {
-        text.text = (GameObject.FindObjectOfType<StoryManager>().currentDay += 1).ToString() + "th of January 2024";
+        int tDay = GameObject.FindObjectOfType<StoryManager>().currentDay;
+        text.text = (tDay + 19).ToString() + "th of January 2024";
     }
 }

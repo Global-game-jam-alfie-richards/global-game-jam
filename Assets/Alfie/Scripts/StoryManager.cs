@@ -104,7 +104,7 @@ public class StoryManager : MonoBehaviour
                 happiness = 1f;
             }
 
-            if(currentDay == 7)
+            if(currentDay >= 7)
             {
                 // run an ending here
                 EndingManager manager = GetComponent<EndingManager>();
@@ -122,9 +122,14 @@ public class StoryManager : MonoBehaviour
                 SavePlayer();
 
                 // load scene based on happiness
-                LoadSceneBasedOnHappiness();
+                Invoke("DelaySceneLoad", 15);
             }
         }
+    }
+
+    void DelaySceneLoad()
+    {
+        LoadSceneBasedOnHappiness();
     }
 
     private void LoadSceneBasedOnHappiness()
@@ -164,7 +169,7 @@ public class StoryManager : MonoBehaviour
             while (done == false)
             {
                 // if insanity is greater than 0.3 do a 1 in 10 chance you get an insane event
-                if((tInsanity - 0.3f) > 0f)
+                if((tInsanity - 0.2f) > 0f)
                 {
                     insanityChance += 1;
                     tInsanity -= 0.1f;
