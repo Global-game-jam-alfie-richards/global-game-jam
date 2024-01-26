@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 public class PlayButton : MonoBehaviour
 {
     float happiness = 0.5f;
+    private LevelLoader levelLoader;
     // Start is called before the first frame update
     void Start()
     {
-        
+        levelLoader = FindObjectOfType<LevelLoader>().GetComponent<LevelLoader>();
     }
 
     // Update is called once per frame
@@ -27,7 +28,7 @@ public class PlayButton : MonoBehaviour
         string sceneName = sceneNumber + "Happiness";
 
         // Load the scene based on the calculated name
-        SceneManager.LoadScene(sceneName);
+        levelLoader.LoadNextScene(sceneName);
     }
 
     void LoadPlayer()
@@ -41,7 +42,7 @@ public class PlayButton : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("5Happiness");
+            levelLoader.LoadNextScene("5Happiness");
         }
     }
 }

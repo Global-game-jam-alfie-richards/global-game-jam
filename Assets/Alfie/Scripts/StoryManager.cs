@@ -33,10 +33,13 @@ public class StoryManager : MonoBehaviour
     [SerializeField] private int maxDailyEvents = 7;
     [SerializeField] private int minDailyEvents = 5;
 
+    private LevelLoader levelLoader;
+
     // Start is called before the first frame update
     void Start()
     {
         eventPlayers = FindObjectsOfType<EventPlayer>();
+        levelLoader = FindObjectOfType<LevelLoader>().GetComponent<LevelLoader>();
         
 
         // loads save file etc
@@ -131,7 +134,7 @@ public class StoryManager : MonoBehaviour
         string sceneName = sceneNumber + "Happiness";
 
         // Load the scene based on the calculated name
-        SceneManager.LoadScene(sceneName);
+        levelLoader.LoadNextScene(sceneName);
     }
 
     void ResetPlayerStates()

@@ -19,9 +19,13 @@ public class EndingManager : MonoBehaviour
 
     Color32 textColor = new Color32((byte)255, (byte)255, (byte)255, (byte)0);
 
+    private LevelLoader levelLoader;
+
     public void DoEnding()
     {
         StoryManager manager = GetComponent<StoryManager>();
+        levelLoader = FindObjectOfType<LevelLoader>().GetComponent<LevelLoader>();
+
         LoadCSV();
 
         // pick one based on happiness
@@ -55,7 +59,7 @@ public class EndingManager : MonoBehaviour
         // fade out animation
 
         // change scene
-        SceneManager.LoadScene("MainMenu");
+        levelLoader.LoadNextScene("MainMenu");
     }
 
     public void MoneyEnding()
