@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 public class StoryManager : MonoBehaviour
 {
     // character prefabs
-    [SerializeField] GameObject phone, computer, mail, kitchen, bed, money;
+    [SerializeField] GameObject phone, computer, mail, kitchen, bed, money,initCamera;
 
     // events and story
     public List<string[]> storyList = new List<string[]>();
@@ -67,7 +67,10 @@ public class StoryManager : MonoBehaviour
 
             // do day ending (animation or something idk)
             //instantiate bed player object and fade out or something - dexter
-            GameObject bedPlayer = Instantiate(bed);
+            //GameObject bedPlayer = Instantiate(bed);
+            ResetPlayerStates();
+
+            bed.SetActive(true);
 
             // also here if we want events to happen specifically at the end of the day like scrolling shorts we can have it always happen if the remaining events is less than 2 but not 0
 
@@ -102,7 +105,16 @@ public class StoryManager : MonoBehaviour
         }
     }
 
-    
+    void ResetPlayerStates()
+    {
+        initCamera.SetActive(false);
+        phone.SetActive(false);
+        computer.SetActive(false);
+        mail.SetActive(false);
+        kitchen.SetActive(false);
+        bed.SetActive(false);
+        money.SetActive(false);
+    }
 
 
     void RunEvent()
@@ -199,7 +211,9 @@ public class StoryManager : MonoBehaviour
                 currentEvent = (GetRandomEvent(tempList));
             }
         }
+
         Debug.Log(currentEvent[0]);
+
 
         // get event location ready for players
         string eventLocation = currentEvent[3];
@@ -208,36 +222,50 @@ public class StoryManager : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0, 0, 0);
         Vector3 scale = new Vector3(1.35f, 1.35f, 1.35f);
 
+        ResetPlayerStates();
+
         // activate the corresponding player object
         switch (eventLocation)
         {
             case "phone on desk":
 
-                GameObject phonePlayer = Instantiate(phone);
+                //GameObject phonePlayer = Instantiate(phone);
+                ResetPlayerStates();
+                phone.SetActive(true);
                 break;
 
             case "computer screen":
 
-                GameObject screenPlayer = Instantiate(computer);
+                //GameObject screenPlayer = Instantiate(computer);
+                ResetPlayerStates();
+                computer.SetActive(true);
                 break;
 
             case "mail":
 
-                GameObject mailPlayer = Instantiate(mail);
+                //GameObject mailPlayer = Instantiate(mail);
+                ResetPlayerStates();
+                mail.SetActive(true);
                 break;
 
             case "kitchen":
 
-                GameObject kitchenPlayer = Instantiate(kitchen);
+                //GameObject kitchenPlayer = Instantiate(kitchen);
+                ResetPlayerStates();
+                kitchen.SetActive(true);
                 break;
 
             case "money":
 
-                GameObject moneyPlayer = Instantiate(money);
+                //GameObject moneyPlayer = Instantiate(money);
+                ResetPlayerStates();
+                money.SetActive(true);
                 break;
             default:
 
-                GameObject bedPlayer = Instantiate(bed);
+                //GameObject bedPlayer = Instantiate(bed);
+                ResetPlayerStates();
+                bed.SetActive(true);
                 break;
         }
 
