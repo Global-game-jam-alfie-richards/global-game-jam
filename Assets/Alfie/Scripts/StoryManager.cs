@@ -82,12 +82,12 @@ public class StoryManager : MonoBehaviour
             // progresses to the next day
 
             // if the outcome of the day is sadness become mildly insane
-            if(happiness < 0.3)
+            if(happiness < 0.5)
             {
-                insanity += 0.1f;
+                insanity += 0.2f;
             }
 
-            if(happiness > 0.6)
+            if(happiness > 0.8)
             {
                 insanity -= 0.1f;
             }
