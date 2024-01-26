@@ -302,6 +302,9 @@ public class StoryManager : MonoBehaviour
                 //GameObject mailPlayer = Instantiate(mail);
                 ResetPlayerStates();
                 mail.SetActive(true);
+                Animator anim = mail.GetComponentInChildren<Animator>();
+                anim.Rebind();
+                anim.Update(0f);
                 break;
 
             case "kitchen":
