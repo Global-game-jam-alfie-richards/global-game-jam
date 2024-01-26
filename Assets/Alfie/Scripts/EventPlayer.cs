@@ -163,7 +163,7 @@ public class EventPlayer : MonoBehaviour
     {
         canvas.SetActive(false);
         // fade to black
-        Destroy(playerObject);
+        //Destroy(playerObject);
     }
     
     IEnumerator setHappinessAnim(float influence)
@@ -212,6 +212,7 @@ public class EventPlayer : MonoBehaviour
                 Debug.Log("YOU ARE THE WINNER");
                 break;
             case "kitchen":
+
                 if (influence < 0)
                 {
                     playerAnim.SetTrigger("sadReaction");
