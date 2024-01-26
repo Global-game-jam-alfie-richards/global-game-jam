@@ -5,7 +5,7 @@ using System.IO;
 using System;
 
 using Random=UnityEngine.Random;
-using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour
 {
@@ -89,20 +89,49 @@ public class StoryManager : MonoBehaviour
                 insanity -= 0.1f;
             }
 
+            // if happiness les than 0 set it to 0
             if(happiness < 0)
             {
                 happiness = 0f;
             }
 
-            currentDay += 1;
+            // if happiness greater than 1 set it to 1
+            if(happiness > 1)
+            {
+                happiness = 1f;
+            }
 
-            // DEBUGGING CODE REMOVE IN PROD
-            remainingEvents = Random.Range(minDailyEvents, maxDailyEvents);
-            QueueTime();
-            // DEBUGGING CODE REMOVE IN PROD
+            if(currentDay == 7)
+            {
+                // run an ending here
+                EndingManager manager = GetComponent<EndingManager>();
+                manager.DoEnding();
+            }
+            else
+            {
+                currentDay += 1;
 
-            SavePlayer();
+                // DEBUGGING CODE REMOVE IN PROD
+                // remainingEvents = Random.Range(minDailyEvents, maxDailyEvents);
+                // QueueTime();
+                // DEBUGGING CODE REMOVE IN PROD
+
+                SavePlayer();
+
+                // load scene based on happiness
+                LoadSceneBasedOnHappiness();
+            }
         }
+    }
+
+    private void LoadSceneBasedOnHappiness()
+    {
+        // Calculate the scene name based on the happiness value
+        int sceneNumber = Mathf.Clamp(Mathf.FloorToInt(happiness * 10), 1, 10);
+        string sceneName = sceneNumber + "Happiness";
+
+        // Load the scene based on the calculated name
+        SceneManager.LoadScene(sceneName);
     }
 
     void ResetPlayerStates()
@@ -171,8 +200,11 @@ public class StoryManager : MonoBehaviour
                     }
                 }
 
-                // we now have our insane event
-                currentEvent = (GetRandomEvent(tempList));
+                if(tempList.Count > 0)
+                {
+                    // we now have our insane event
+                    currentEvent = (GetRandomEvent(tempList));
+                }
             }
         }
         if(currentEvent == null)
@@ -191,7 +223,27 @@ public class StoryManager : MonoBehaviour
                 }
 
                 // we now have our positive event
-                currentEvent = (GetRandomEvent(tempList));
+                if(tempList.Count > 0)
+                {
+                    // we now have our insane event
+                    currentEvent = (GetRandomEvent(tempList));
+                }
+                else
+                {
+                    // makes it so u only get insane events if youre insane
+                    tempList = new List<string[]>();
+
+                    foreach(string[] storyEvent in storyList)
+                    {
+                        if(storyEvent[5] != "TRUE")
+                        {
+                            tempList.Add(storyEvent);
+                        }
+                    }
+
+                    // we now have our positive event
+                    currentEvent = (GetRandomEvent(tempList));
+                }
             }
             // this is a regular event selection
             else
@@ -213,6 +265,7 @@ public class StoryManager : MonoBehaviour
         }
 
         Debug.Log(currentEvent[0]);
+        storyList.Remove(currentEvent);
 
 
         // get event location ready for players
@@ -378,13 +431,13 @@ public class StoryManager : MonoBehaviour
 
         if (File.Exists(path))
         {
-            //LoadPlayer();
+            LoadPlayer();
 
-            // DEBUGGING CODE REMOVE IN PROD
-            LoadCSV();
-            TimeIncrease();
-            SavePlayer();
-            // DEBUGGING CODE REMOVE IN PROD
+            // // DEBUGGING CODE REMOVE IN PROD
+            // LoadCSV();
+            // TimeIncrease();
+            // SavePlayer();
+            // // DEBUGGING CODE REMOVE IN PROD
         }
         else
         {

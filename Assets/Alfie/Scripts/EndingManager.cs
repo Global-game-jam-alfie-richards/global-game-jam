@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using TMPro;
+using System.IO;
+using UnityEngine.SceneManagement;
 
 public class EndingManager : MonoBehaviour
 {
@@ -35,6 +37,25 @@ public class EndingManager : MonoBehaviour
         enableBlur = true;
         endingText.text = selectedEnding[1];
 
+        // wait a volume of time so the player can read their ending message, then delete save, fade out, change scene
+        StartCoroutine(EndGame());
+    }
+
+    IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(10);
+        string path = Application.persistentDataPath + "/player.ezeSave";
+
+        if (File.Exists(path))
+        {
+            // if theres a save file delete it
+            File.Delete(path);
+        }
+
+        // fade out animation
+
+        // change scene
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void MoneyEnding()
@@ -72,8 +93,11 @@ public class EndingManager : MonoBehaviour
         string[] closestItem = data[0];
         float minDifference = Mathf.Abs(target - float.Parse(data[0][2]));
 
-        for (int i = 1; i < data.Count; i++)
+        Debug.Log(data[0][2]);
+
+        for (int i = 0; i < data.Count; i++)
         {
+            Debug.Log(data[i][2]);
             float difference = Mathf.Abs(target - float.Parse(data[i][2]));
             if (difference < minDifference)
             {

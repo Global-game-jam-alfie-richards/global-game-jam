@@ -4,5 +4,42 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Main Branch/Scenes/Gameplay/StatesOfDepression/5Happiness.unity
+    guid: 3f3ea4bbdc5b56048a7069401f002f49
+  - enabled: 1
+    path: Assets/Main Branch/Scenes/Gameplay/StatesOfDepression/1Happiness.unity
+    guid: be965ff5082f0f14b980c0485cf54b03
+  - enabled: 1
+    path: Assets/Main Branch/Scenes/Gameplay/StatesOfDepression/2Happiness.unity
+    guid: c8b1e7128e7c7a64680128f8aef6db35
+  - enabled: 1
+    path: Assets/Main Branch/Scenes/Gameplay/StatesOfDepression/3Happiness.unity
+    guid: f6a590304670cf24e9b289e4842ed8d7
+  - enabled: 1
+    path: Assets/Main Branch/Scenes/Gameplay/StatesOfDepression/4Happiness.unity
+    guid: 5e501f3eea9e1a4438fd7f61ad032e8a
+  - enabled: 1
+    path: Assets/Main Branch/Scenes/Gameplay/StatesOfDepression/6Happiness.unity
+    guid: e9a81e6e8d9870c4389925922b9c629c
+  - enabled: 1
+    path: Assets/Main Branch/Scenes/Gameplay/StatesOfDepression/7Happiness.unity
+    guid: 3778791a072f4a74d93b469e87fd68f2
+  - enabled: 1
+    path: Assets/Main Branch/Scenes/Gameplay/StatesOfDepression/8Happiness.unity
+    guid: 4a5611fc5288952409b626a9f41621ed
+  - enabled: 1
+    path: Assets/Main Branch/Scenes/Gameplay/StatesOfDepression/9Happiness.unity
+    guid: 6f3d854884ca5e2478e22a472128383a
+  - enabled: 1
+    path: Assets/Main Branch/Scenes/Gameplay/StatesOfDepression/10Happiness.unity
+    guid: f0aa36da409b2204d9198b9894aa650b
+  - enabled: 1
+    path: Assets/Main Branch/Scenes/Gameplay/TheEntireGame.unity
+    guid: b1c23b5bc3f9c4a479d6c28ccc7af366
+  - enabled: 1
+    path: Assets/Main Branch/Scenes/Main Menu/MainMenu.unity
+    guid: a112ce1bba3f3104cbc99610d5174928
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

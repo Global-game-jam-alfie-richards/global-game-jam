@@ -22,12 +22,15 @@ public class EventPlayer : MonoBehaviour
 
     // other options
     private StoryManager storyManager;
+    private EndingManager endingManager;
     private string[] currentEvent;
 
     // Start is called before the first frame update
     void Start()
     {
         storyManager = GameObject.Find("StoryManager").GetComponent<StoryManager>();
+        endingManager = GameObject.Find("StoryManager").GetComponent<EndingManager>();
+
     }
 
     public void RunEvent(string eventLocation, string[] storyEvent)
@@ -93,7 +96,7 @@ public class EventPlayer : MonoBehaviour
                 playerAnim.SetBool("isTyping", false);
                 break;
             case "kitchen":
-                playerAnim.SetFloat("happiness", storyManager.happiness);
+                
                 break;
             default: // phone in bed
 
@@ -209,7 +212,15 @@ public class EventPlayer : MonoBehaviour
 
                 break;
             case "money":
-                Debug.Log("YOU ARE THE WINNER");
+                if (influence < 0)
+                {
+                    //you didnt take the money
+                }
+                else
+                {
+                    Debug.Log("YOU ARE THE WINNER");
+                    endingManager.MoneyEnding();
+                }
                 break;
             case "kitchen":
 
